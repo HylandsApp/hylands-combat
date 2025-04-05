@@ -4,7 +4,15 @@ const { Config, Broadcast: B } = require('ranvier');
 const Combat = require('./lib/Combat');
 const CombatErrors = require('./lib/CombatErrors');
 const LevelUtil = require('../hylands-lib/lib/LevelUtil');
-const WebsocketStream = require('../websocket-networking/lib/WebsocketStream');
+
+// Check if websocket-networking is available
+let WebsocketStream;
+try {
+  WebsocketStream = require('../websocket-networking/lib/WebsocketStream');
+} catch (e) {
+  // If websocket-networking is not available, use a dummy class
+  WebsocketStream = class DummyWebsocketStream {};
+}
 
 /**
  * Auto combat module

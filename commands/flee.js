@@ -1,8 +1,8 @@
 'use strict';
 
-const { Random } = require('rando-js');
 const { Broadcast } = require('ranvier');
 const { CommandParser } = require('../..//hylands-lib/lib/CommandParser');
+const { Random } = require('../lib/Combat');
 const say = Broadcast.sayAt;
 
 module.exports = {
